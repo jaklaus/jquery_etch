@@ -1,0 +1,32 @@
+h1	{
+	text-align: center;
+}
+
+body {
+	font-family: 'Mada', sans-serif;
+}
+
+#squares-input {
+	margin: 0 auto;
+	display: block;
+}
+
+#container {
+	margin: 0 auto;
+	margin-top: 30px;
+	width: 600px;
+	height: 600px;
+
+}
+
+.squares{
+	background: black;
+	width: 33%;
+	padding-bottom: 33%;
+	float: left;
+
+}
+
+.squares-hover {
+	background: none;
+}
