@@ -13,6 +13,8 @@ $(document).ready(function(){
 
 // creates rows of squares. assigns class 'squares', width, and padding to each square. uses nested for loop to draw columns
 function createSquares(value){
+	// value * 2 because pixel width borders
+	$('#container').css({"width": 600 + (2*value) + "px", "height": 600 + (2*value) + "px"})
 	var size = 600 / value;
 	var container = $("#container").html("");
 	for(var i = 1; i <= value; i++){
@@ -33,9 +35,9 @@ function colorHover(){
 // clicking button resets grid to its default state
 function resetSquares(){
 	$('#reset-squares').click(function(){
-		$('.squares').remove();
 		createSquares(gridSize);
 		colorHover();
+		$('#squares-number-input').val('');
 		gridSizeDisplay(gridSize);
 	})
 }

@@ -25,7 +25,7 @@ p {
 .squares{
 	background: black;
 	float: left;
-
+	border: gray solid 1px;
 }
 
 .squares-hover {
