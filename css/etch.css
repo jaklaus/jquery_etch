@@ -6,9 +6,12 @@ body {
 	font-family: 'Mada', sans-serif;
 }
 
+p {
+	text-align: center;
+}
+
 #squares-input {
-	margin: 0 auto;
-	display: block;
+	text-align: center;
 }
 
 #container {
@@ -21,8 +24,6 @@ body {
 
 .squares{
 	background: black;
-	width: 33%;
-	padding-bottom: 33%;
 	float: left;
 
 }
