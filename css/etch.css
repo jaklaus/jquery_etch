@@ -28,6 +28,10 @@ p {
 	border: gray solid 1px;
 }
 
-.squares-hover {
-	background: none;
+.black-white-hover {
+	background: white;
+}
+
+.color-hover {
+
 }

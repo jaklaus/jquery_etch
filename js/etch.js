@@ -1,6 +1,8 @@
 
 // set default grid size
 var gridSize = 9;
+var colorCondition = false;
+var randomColorValue = "";
 
 // call functions and create default grid
 $(document).ready(function(){
@@ -9,6 +11,8 @@ $(document).ready(function(){
 	resetSquares();
 	setGridSize();
 	gridSizeDisplay(gridSize);
+	colorState();
+	randomColor();
 })
 
 // creates rows of squares. assigns class 'squares', width, and padding to each square. uses nested for loop to draw columns
@@ -27,9 +31,29 @@ function createSquares(value){
 
 // hover functionality created through adding squares-hover class
 function colorHover(){
+
 	$('.squares').hover(function(){
-		$(this).addClass('squares-hover');
+		if(colorCondition === false){
+			$(this).css({"background": "white"});
+		} else {
+			randomColor();
+			$(this).css({"background": randomColorValue})
+		}
+		
 	})
+}
+
+// buttons change color and black an white state
+function colorState(){
+	$('#black-white-button').click(function(){
+		colorCondition = false;
+	})
+		
+	$('#color-button').click(function(){
+		colorCondition = true;
+	})
+		
+	
 }
 
 // clicking button resets grid to its default state
@@ -51,6 +75,7 @@ function setGridSize(){
 			createSquares(gridSize);
 			colorHover();
 			gridSizeDisplay(gridSize);
+			$('#squares-number-input').val('');
 		}
 		
 	})
@@ -58,4 +83,15 @@ function setGridSize(){
 // displays current grid size on page
 function gridSizeDisplay(value){
 	$('#grid-size').html("<p>Grid Size: </p>" + value)
+}
+
+function randomColor(){
+
+	var r = Math.ceil(Math.random() * 255)
+	var g = Math.ceil(Math.random() * 255)
+	var b = Math.ceil(Math.random() * 255)
+
+	randomColorValue = "rgb(" + r + "," +  g + "," + b + ")";
+
+	return randomColorValue;
 }
