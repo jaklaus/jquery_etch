@@ -1,6 +1,5 @@
-
 // set default grid size
-var gridSize = 9;
+var gridSize = 20;
 var colorCondition = false;
 var randomColorValue = "";
 
@@ -13,12 +12,13 @@ $(document).ready(function(){
 	gridSizeDisplay(gridSize);
 	colorState();
 	randomColor();
+	$("#black-white-button").addClass('activeButton');
 })
 
-// creates rows of squares. assigns class 'squares', width, and padding to each square. uses nested for loop to draw columns
+// creates rows of squares. assigns class 'squares', width, and padding to each square. uses nested for loops to draw rows and columns
 function createSquares(value){
-	// value * 2 because pixel width borders
-	$('#container').css({"width": 600 + (2*value) + "px", "height": 600 + (2*value) + "px"})
+	// value * 2 because of pixel width borders
+	$('#container').css({"width": 600 + (2 * value) + "px", "height": 600 + (2 * value) + "px"})
 	var size = 600 / value;
 	var container = $("#container").html("");
 	for(var i = 1; i <= value; i++){
@@ -31,7 +31,6 @@ function createSquares(value){
 
 // hover functionality created through adding squares-hover class
 function colorHover(){
-
 	$('.squares').hover(function(){
 		if(colorCondition === false){
 			$(this).css({"background": "white"});
@@ -39,7 +38,6 @@ function colorHover(){
 			randomColor();
 			$(this).css({"background": randomColorValue})
 		}
-		
 	})
 }
 
@@ -47,13 +45,14 @@ function colorHover(){
 function colorState(){
 	$('#black-white-button').click(function(){
 		colorCondition = false;
+		$(this).addClass('activeButton');
+		$("#color-button").removeClass('activeButton');
 	})
-		
 	$('#color-button').click(function(){
 		colorCondition = true;
+		$(this).addClass('activeButton');
+		$("#black-white-button").removeClass('activeButton');
 	})
-		
-	
 }
 
 // clicking button resets grid to its default state
@@ -63,6 +62,7 @@ function resetSquares(){
 		colorHover();
 		$('#squares-number-input').val('');
 		gridSizeDisplay(gridSize);
+		colorCondition = false;
 	})
 }
 
@@ -77,7 +77,6 @@ function setGridSize(){
 			gridSizeDisplay(gridSize);
 			$('#squares-number-input').val('');
 		}
-		
 	})
 }
 // displays current grid size on page
@@ -87,9 +86,9 @@ function gridSizeDisplay(value){
 
 function randomColor(){
 
-	var r = Math.ceil(Math.random() * 255)
-	var g = Math.ceil(Math.random() * 255)
-	var b = Math.ceil(Math.random() * 255)
+	var r = Math.ceil(Math.random() * 256)
+	var g = Math.ceil(Math.random() * 256)
+	var b = Math.ceil(Math.random() * 256)
 
 	randomColorValue = "rgb(" + r + "," +  g + "," + b + ")";
 

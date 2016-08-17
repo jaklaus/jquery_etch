@@ -10,6 +10,17 @@ p {
 	text-align: center;
 }
 
+button {
+	outline: none;
+	border: none;
+	border-radius: 10px;
+	font-size: 13px;
+}
+
+button:hover {
+	background: lightblue;
+}
+
 #squares-input {
 	text-align: center;
 }
@@ -28,10 +39,6 @@ p {
 	border: gray solid 1px;
 }
 
-.black-white-hover {
-	background: white;
-}
-
-.color-hover {
-
+.activeButton {
+	background: lightblue;
 }
