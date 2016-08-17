@@ -63,6 +63,8 @@ function resetSquares(){
 		$('#squares-number-input').val('');
 		gridSizeDisplay(gridSize);
 		colorCondition = false;
+		$("#color-button").removeClass('activeButton');
+		$("#black-white-button").addClass('activeButton');
 	})
 }
 
